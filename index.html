@@ -1,22 +1,33 @@
 <html>
   <body>
-    Here is one mermaid diagram:
-    <pre class="mermaid">
-            graph TD 
-            A[Client] --> B[Load Balancer] 
-            B --> C[Server1] 
-            B --> D[Server2]
-    </pre>
-
-    And here is another:
-    <pre class="mermaid">
-            graph TD 
-            A[Client] -->|tcp_123| B
-            B(Load Balancer) 
-            B -->|tcp_456| C[Server1] 
-            B -->|tcp_456| D[Server2]
-    </pre>
-
+    <nav>
+      <ul>
+        <li>
+          <a href="static.html">Static</a>
+        </li>
+        <li>
+          <a href="statica.html">Static Advanced</a>
+        </li>
+        <li>
+          <a href="ssrb.html">SSR basic</a>
+        </li>
+        <li>
+          <a href="ssr.html">SSR</a>
+        </li>
+        <li>
+          <a href="ssrslow.html">SSR Slow</a>
+        </li>
+        <li>
+          <a href="csr.html">CSR</a>
+        </li>
+        <li>
+          <a href="csrshining.html">CSR shining</a>
+        </li>
+        <li>
+          <a href="hybrid.html">Hybrid CSR/SSR</a>
+        </li>
+      </ul>
+    </nav>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
       mermaid.initialize({ startOnLoad: true });
