@@ -10,9 +10,19 @@
     <pre class="mermaid">
       sequenceDiagram
         participant C as Client
-        participant S as Server
-        C->>S: HTTP Request
-        S->>C: HTTP (HTML) Response
+        participant HS as HTTP Server
+        participant AS as API Server
+        participant D as Database
+        C->>HS: HTTP Request
+        HS->>C: HTTP (empty HTML) Response
+        Note left of C: User sees loading UI
+        C->>HS: HTTP Request (for JS)
+        HS->>C: HTTP (JS) Response
+        C->>+AS: API Request
+        AS->>D: Database Request
+        D->>AS: Database Response
+        AS->>-C: API (JSON) Response
+        Note left of C: Browser populates HTML template with data
     </pre>
     <script type="module">
       import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
