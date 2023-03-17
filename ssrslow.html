@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre class="mermaid">
+      sequenceDiagram
+        participant C as Client
+        participant S as Server
+        participant D as Database
+        C->>+S: HTTP Request
+        Note left of C: User has been waiting
+        Note right of S: Server queries data from a DB
+        S->>D: Database Request
+        D->>S: Database Response
+        Note right of S: Server populates HTML template with data
+        S->>-C: HTTP (HTML) Response
+        Note left of C: User sees the UI
+        Note left of C: User interacts with UI
+        C->>+S: HTTP Request
+        Note right of S: Server queries data from a DB
+        S->>D: Database Request
+        D->>S: Database Response
+        Note right of S: Server populates HTML template with data
+        S->>-C: HTTP (HTML) Response
+        Note left of C: User has been waiting
+        Note left of C: UI refreshes completely
+    </pre>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  </body>
+</html>
